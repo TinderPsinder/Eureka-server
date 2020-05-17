@@ -6,14 +6,13 @@ spring:
     name: eureka
 
 eureka:
+  password: Eureka1234
   client:
     registerWithEureka: false
-    fetchRegistry: true
+    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://psinder-eureka:5000/eureka/
       healthcheck:
         enabled: true
-  password: ${EUREKA_USER_PASSWORD:password}
-
   instance:
-    hostname: "localhost"
+    hostname: localhost
