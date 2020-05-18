@@ -10,15 +10,16 @@ eureka:
     enableSelfPreservation: false
   client:
     registerWithEureka: false
-    fetchRegistry: true
+    fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+        password: ${EUREKA_USER_PASSWORD:password}
       healthcheck:
         enabled: true
   instance:
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2
-    hostname: "localhost"
+    hostname: localhost
 ribbon:
   eureka:
     enabled: false
