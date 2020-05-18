@@ -6,13 +6,20 @@ spring:
     name: eureka
 
 eureka:
-  password: ${EUREKA_USER_PASSWORD:password}
+  server:
+    enableSelfPreservation: false
   client:
     registerWithEureka: false
-    fetchRegistry: false
+    fetchRegistry: true
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       healthcheck:
         enabled: true
   instance:
-    hostname: localhost
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+    hostname: "localhost"
+ribbon:
+  eureka:
+    enabled: false
+  ServerListRefreshInterval: 15000
