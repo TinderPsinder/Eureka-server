@@ -10,7 +10,7 @@ eureka:
     registerWithEureka: false
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://localhost:8091/eureka
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       healthcheck:
         enabled: true
   instance:
